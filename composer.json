@@ -1,0 +1,23 @@
+{
+    "name": "tests-always-included/logging-soapclient",
+    "type": "library",
+    "authors":
+    [
+        {
+            "name": "Tests Always Included Members",
+            "homepage": "https://github.com/tests-always-included/logging-soapclient"
+        }
+    ],
+    "require":
+    {
+        "php": ">=5.3.9",
+        "psr/log": "~1.0"
+    },
+    "autoload":
+    {
+        "psr-0":
+        {
+            "TestsAlwaysIncluded\\LoggingSoapClient\\": "src"
+        }
+    }
+}
