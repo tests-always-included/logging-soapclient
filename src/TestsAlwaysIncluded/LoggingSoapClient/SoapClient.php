@@ -24,11 +24,11 @@ class SoapClient extends BaseSoapClient
      */
     public function __doRequest($request, $location, $action, $version, $one_way = 0)
     {
-        $this->logXML($action, $request);
+        $this->logXML($action, $request, $this->__getLocation());
         $response = parent::__doRequest($request, $location, $action, $version, $one_way);
         if(0 == $one_way)
         {
-            $this->logXML($action, $response);
+            $this->logXML($action . ':Response', $response);
         }
         return $response;
     }
@@ -59,9 +59,16 @@ class SoapClient extends BaseSoapClient
      * @param string $action
      * @param string $xml
      */
-    protected function logXML($action, $xml)
+    protected function logXML($action, $xml, $location = null)
     {
-        $this->getLogger()->info($action, array('xml' => $xml));
+        $context = array(
+            'xml' => $xml,
+        );
+        if(false === is_null($location))
+        {
+            $context['location'] = $location;
+        }
+        $this->getLogger()->info($action, $context);
     }
 
     /**
