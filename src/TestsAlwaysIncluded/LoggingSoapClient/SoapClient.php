@@ -11,6 +11,13 @@ class SoapClient extends BaseSoapClient
 {
     protected $logger;
 
+    public function __construct($wsdl, array $options = array())
+    {
+        //Set trace to true, or we cannot log the XML
+        $options['trace'] = true;
+        parent::SoapClient($wsdl, $options);
+    }
+
     /**
      * Overrides __doRequest to allow logging
      * the request and response
