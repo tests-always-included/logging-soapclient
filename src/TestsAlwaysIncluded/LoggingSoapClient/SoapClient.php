@@ -38,9 +38,12 @@ class SoapClient extends BaseSoapClient
      *
      * @param string $newLocation
      */
-    public function __setLocation($newLocation)
+    public function __setLocation($newLocation = null)
     {
-        $this->location = $newLocation;
+        if(false === is_null($newLocation))
+        {
+            $this->location = $newLocation;
+        }
     }
 
     /**
