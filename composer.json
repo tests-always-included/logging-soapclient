@@ -19,5 +19,8 @@
         {
             "TestsAlwaysIncluded\\LoggingSoapClient\\": "src"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "@stable"
     }
 }
